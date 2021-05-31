@@ -18,17 +18,28 @@ class TPQueue {
     bool isEmpty() const;
 };
 
-template<typename T>
-T TPQueue<T>::get() const {
+
+
+T pop()
+{
+    assert( count > 0 );
+    T item = arr[begin++];
+    count--;
+    if (begin > size)
+        begin -= size + 1;
+    return item;
+}
+
+T get() const {
     assert(count > 0);
     return arr[begin];
 }
-template<typename T>
-bool TPQueue<T>::isEmpty() const {
+
+bool isEmpty() const {
   return count == 0;
 }
-template<typename T>
-bool TPQueue<T>::isFull() const {
+
+bool isFull() const {
   return count == size;
 }
 
