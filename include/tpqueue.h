@@ -18,7 +18,19 @@ class TPQueue {
     bool isEmpty() const;
 };
 
-
+void push(const T & item) {
+    assert( count < size );
+        if (end != 0) {
+        arr[end] = item;
+                for (int i = end - 1; i >= begin; i--) {
+                if (arr[i].prior < item.prior) {
+                        arr[i] = item;
+						arr[i + 1] = arr[i];
+                }
+                }
+        } else {
+                arr[begin] = item;
+        }
 
 T pop()
 {
