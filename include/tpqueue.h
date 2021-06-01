@@ -5,9 +5,8 @@
 
 template<typename T>
 class TPQueue {
-  // Сюда помещается описание структуры "Очередь с приоритетами"
-    private:
-    T* arr;
+    private 
+    T *arr;
     int size;
     int begin, end;
     int count;
@@ -16,7 +15,6 @@ class TPQueue {
     T get() const;
     bool isFull() const;
     bool isEmpty() const;
-};
 
 void push(const T & item) {
     assert(count < size);
