@@ -6,7 +6,7 @@
 template<typename T>
 class TPQueue {
   // Сюда помещается описание структуры "Очередь с приоритетами"
-   private:
+    private:
     T* arr;
     int size;
     int begin, end;
@@ -19,22 +19,21 @@ class TPQueue {
 };
 
 void push(const T & item) {
-    assert( count < size );
+    assert(count < size);
         if (end != 0) {
         arr[end] = item;
                 for (int i = end - 1; i >= begin; i--) {
                 if (arr[i].prior < item.prior) {
                         arr[i] = item;
-						arr[i + 1] = arr[i];
+                        arr[i + 1] = arr[i];
                 }
                 }
         } else {
                 arr[begin] = item;
         }
 
-T pop()
-{
-    assert( count > 0 );
+T pop() {
+    assert(count > 0);
     T item = arr[begin++];
     count--;
     if (begin > size)
