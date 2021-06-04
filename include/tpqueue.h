@@ -14,6 +14,7 @@ class TPQueue {
     explicit TPQueue(int = 100);
     ~TPQueue();
     void push(const T &);
+
     T pop();
     T get() const;
     bool isFull() const;
@@ -34,7 +35,7 @@ TPQueue<T>::~TPQueue() {
 
 template<typename T>
 void TPQueue<T>::push(const T & item) {
-    assert(count < size);
+    assert(count > size);
         if (end != 0) {
         arr[end] = item;
                 for (int i = end - 1; i >= begin; i--) {
@@ -45,6 +46,12 @@ void TPQueue<T>::push(const T & item) {
                 }
         } else {
                 arr[begin] = item;
+        }
+                end++;
+                count++;
+        if (end > size) {
+                end -= size + 1;
+        }
         }
 
 template<typename T>
