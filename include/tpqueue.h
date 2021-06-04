@@ -11,6 +11,9 @@ class TPQueue {
     int begin, end;
     int count;
  public:
+    explicit TPQueue(int = 100);
+    ~TPQueue();
+    void push(const T &);
     T pop();
     T get() const;
     bool isFull() const;
@@ -23,6 +26,7 @@ TPQueue<T>::TPQueue(int sizeQueue) :
         begin(0), end(0), count(0) {
         arr = new T[size + 1];
         }
+
 template<typename T>
 TPQueue<T>::~TPQueue() {
         delete [] arr;
